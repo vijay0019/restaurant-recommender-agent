@@ -1,0 +1,10 @@
+langchain
+langchain-community
+langchain-openrouter
+langgraph
+tavily
+pydantic
+jupyter
+ipykernel
+python-dotenv
+tenacity>=8

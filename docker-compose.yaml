@@ -1,0 +1,27 @@
+services:
+  dev:
+    build: .
+    container_name: agents-dev
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app
+      - pip-cache:/root/.cache/pip
+    env_file:
+      - ../my_env.env
+    command: sleep infinity
+
+  jupyter:
+    build: .
+    container_name: agents-jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app
+      - pip-cache:/root/.cache/pip
+    env_file:
+      - ../my_env.env
+    command: jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root
+
+volumes:
+  pip-cache:
